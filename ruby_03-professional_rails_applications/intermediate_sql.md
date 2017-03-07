@@ -56,15 +56,32 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 ##### Write queries for the following:
 
 1. What's the total revenue for all items?
+
+`SELECT sum(revenue) FROM items;`
+
 1. What's the average revenue for all items?
+
+`SELECT avg(revenue) FROM items;`
+
 1. What's the minimum revenue for all items?
+
+`SELECT min(revenue) FROM items;`
+
 1. What's the maximum revenue for all items?
+
+`SELECT max(revenue) FROM items;
+
 1. What the count for items with a name?
+
+SELECT count(name) FROM items;`
+
 
 Let's create an item that has all NULL values:
 `INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
 
 Typically you `count` records in a table by counting on the `id` column, like `SELECT COUNT(id) FROM items;`. However, it's not necessary for a table to have an `id` column. What else can you pass to `count` and still get `5` as your result?
+
+`SELECT count(name) FROM items;`
 
 #### Building on Aggregate Functions
 
@@ -78,9 +95,20 @@ How can we get the revenue based on the course?
 ##### Write queries for the following:
 
 1. Return all `main` courses. Hint: What ActiveRecord method would you use to get this?
+
+`SELECT * FROM items WHERE course = 'main';`
+
 1. Return only the names of the `main` courses.
+
+`SELECT name FROM items WHERE course = 'main';`
+
 1. Return the min and max value for the `main` courses.
+
+`SELECT max(revenue), min(revenue) FROM items WHERE course = 'main';`
+
 1. What's the total revenue for all `main` courses?
+
+`SELECT sum(revenue) FROM items WHERE course = 'main';`
 
 #### INNER JOINS
 
