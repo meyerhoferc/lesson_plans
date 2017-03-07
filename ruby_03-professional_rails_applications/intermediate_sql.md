@@ -357,7 +357,13 @@ id |         name         | revenue | season_id
 ### Additional Challenges
 
 * Write a query that returns the sum of all items that have a category of dinner.
+
+`SELECT sum(revenue) FROM item_categories INNER JOIN items ON item_categories.item_id = items.id INNER JOIN categories ON items_categories.category_id = categories.id WHERE categories.name = 'dinner';`
+
 * Write a query that returns the sum of all items for each category. The end result should look like this:
+
+`SELECT categories.name AS name, sum(items.revenue) AS sum FROM item_categories INNER JOIN items ON item_categories.item_id = items.id INNER JOIN categories ON item_categories.category_id = categories.id GROUP BY categories.name;`
+
 ```sql
 name       | sum
 -----------+------
