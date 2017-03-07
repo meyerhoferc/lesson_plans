@@ -221,7 +221,7 @@ Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`,
 * Write a query that pulls all the category names for `arugula salad`.
   Hint: Use multiple `INNER JOIN`s and a `WHERE` clause.
   
-  
+`SELECT items.name AS item_name, categories.name AS category_name FROM item_categories INNER JOIN items ON item_categories.item_id = items.id INNER JOIN categories ON item_categories.category_id = categories.id WHERE items.name = 'arugula salad';`  
 
 Can you get your return value to look like this?
 
@@ -336,6 +336,8 @@ WHERE revenue > (Insert your query that calculates the avg inside these parenthe
 
 The result should look like so...
 
+`SELECT * FROM items WHERE revenue > (SELECT avg(revenue) FROM items);`
+
 ```sql
 id |         name         | revenue | season_id
 ----+----------------------+---------+-----------
@@ -349,6 +351,8 @@ id |         name         | revenue | season_id
 
 
 1. Without looking at the previous solution, write a `WHERE` clause that returns the items that have a revenue less than the average revenue.
+
+`SELECT * FROM items WHERE revenue < (SELECT avg(revenue) FROM items);`
 
 ### Additional Challenges
 
