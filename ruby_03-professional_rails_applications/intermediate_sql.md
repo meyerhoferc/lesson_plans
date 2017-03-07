@@ -69,11 +69,11 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 
 1. What's the maximum revenue for all items?
 
-`SELECT max(revenue) FROM items;
+`SELECT max(revenue) FROM items;`
 
 1. What the count for items with a name?
 
-SELECT count(name) FROM items;`
+`SELECT count(name) FROM items;`
 
 
 Let's create an item that has all NULL values:
@@ -193,7 +193,13 @@ id |         name         | revenue | season_id | id |  name
 This is useful, but we probably don't need all of the information from both tables.
 
 * Can you get it to display only the name for the item and the name for the season?
+
+`SELECT items.name, seasons.name FROM items INNER JOIN seasons ON items.season_id = seasons.id;`
+
 * Having two columns with the same name is confusing. Can you customize each heading using `AS`?
+
+`SELECT items.name AS item_name, seasons.name AS season_name FROM items INNER JOIN seasons ON items.season_id = seasons.id;`
+
 
 It should look like this:
 
@@ -214,6 +220,8 @@ Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`,
 
 * Write a query that pulls all the category names for `arugula salad`.
   Hint: Use multiple `INNER JOIN`s and a `WHERE` clause.
+  
+  
 
 Can you get your return value to look like this?
 
